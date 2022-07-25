@@ -9,6 +9,9 @@
 </head>
 <body>
     <div id="boggle">
+
+        <p>Top Score: {{ topscore }} in {{ plays }} plays</p>
+
         <table id="board">
             <tbody>
                 {% for row in board %}
@@ -21,19 +24,31 @@
             </tbody>
         </table>
         <br>
+
+        <p>
+            Score: <span class="score">0</span>
+            <br>
+            Seconds Left: <span class="clock"></span>
+        </p>
+
         <form id="guess-form">
             <input id="word" name="word" placeholder="What's the word?">
-            <button>Guess!</button>
+            <button id="guess">Guess!</button>
+            
         </form>
 
-      <p class="msg">
-        <!-- showing messages dynamically -->
-      </p>
 
-      <ul class="words">
+    <p class="msg">
+        <!-- showing messages dynamically -->
+    </p>
+
+    <ul class="words">
         <!-- words shown dinamically -->   
-      </ul>
-      
+    </ul>
+    
+    <form id="start" action="/">
+        <button id="start">Start</button>
+    </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.js"></script>

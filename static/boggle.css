@@ -1,0 +1,42 @@
+#board {
+    border: solid 2px rgb(117, 21, 21);
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 150%;
+  }
+  
+  #board td {
+    text-align: center;
+    border: solid 1px gray;
+    width: 1.9rem;
+    height: 2rem;
+  }
+  
+  .msg {
+    padding-left: 1em;
+    font-size: 1.2em;
+    color: coral;
+  }
+
+  .words {
+    padding-left: 1em;
+    font-size: 1.2em;
+    color:midnightblue;
+  }
+
+  input {
+    border-radius: 10px;
+    padding: 5px;
+    width: 200px;
+    font-size: 12px;
+    text-align: center;
+    }
+
+button {
+    border-radius: 10px;
+    padding: 5px;
+    width: 100px;
+    font-size: 12px;
+    text-align: center;
+    background-color: cadetblue;
+}

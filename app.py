@@ -12,9 +12,12 @@ boggle_game = Boggle()
 def home_page():
     board = boggle_game.make_board()
     session["board"] = board
-    score = session.get('score', 0)
+
+    # adding OR resetting ["score"] and ["plays"} to session
+    topscore = session.get('topscore', 0)
     plays = session.get('plays', 0)
-    return render_template('index.html', board=board, score=score, plays=plays)
+    return render_template('index.html', board=board, topscore=topscore, plays=plays)
+
 
 @app.route('/check-word')
 def check_word():
@@ -26,3 +29,18 @@ def check_word():
 
     return jsonify({'result': response})
 
+
+@app.route("/finalize", methods=["POST"])
+def finalize():
+    score = request.json["score"]
+
+    # adding OR resetting ["topscore"] and ["plays"} to session
+    topscore = session.get("topscore", 0)
+    plays = session.get("plays", 0)
+
+    #updating ["plays"] and ["topscore"]
+    session["plays"] = plays + 1
+    top = max(score, topscore)
+    session['topscore'] = top
+
+    return jsonify({"topscore": top})
